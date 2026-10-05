@@ -10,9 +10,20 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as AgriculturalLandRouteImport } from './routes/agricultural-land'
+import { Route as BookAppointmentRouteImport } from './routes/book-appointment'
 import { Route as CommercialRouteImport } from './routes/commercial'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as OurSitesRouteImport } from './routes/our-sites'
+import { Route as PropertyVerificationRouteImport } from './routes/property-verification'
+import { Route as RequestPropertyRouteImport } from './routes/request-property'
 import { Route as ResidentialRouteImport } from './routes/residential'
+import { Route as SellPropertyRouteImport } from './routes/sell-property'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as PropertiesIndexRouteImport } from './routes/properties.index'
 import { Route as PropertiesIdRouteImport } from './routes/properties.$id'
 
@@ -21,9 +32,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AgriculturalLandRoute = AgriculturalLandRouteImport.update({
   id: '/agricultural-land',
   path: '/agricultural-land',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookAppointmentRoute = BookAppointmentRouteImport.update({
+  id: '/book-appointment',
+  path: '/book-appointment',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommercialRoute = CommercialRouteImport.update({
@@ -31,9 +52,54 @@ const CommercialRoute = CommercialRouteImport.update({
   path: '/commercial',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurSitesRoute = OurSitesRouteImport.update({
+  id: '/our-sites',
+  path: '/our-sites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PropertyVerificationRoute = PropertyVerificationRouteImport.update({
+  id: '/property-verification',
+  path: '/property-verification',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestPropertyRoute = RequestPropertyRouteImport.update({
+  id: '/request-property',
+  path: '/request-property',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResidentialRoute = ResidentialRouteImport.update({
   id: '/residential',
   path: '/residential',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellPropertyRoute = SellPropertyRouteImport.update({
+  id: '/sell-property',
+  path: '/sell-property',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PropertiesIndexRoute = PropertiesIndexRouteImport.update({
@@ -49,62 +115,139 @@ const PropertiesIdRoute = PropertiesIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/agricultural-land': typeof AgriculturalLandRoute
+  '/book-appointment': typeof BookAppointmentRoute
   '/commercial': typeof CommercialRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/our-sites': typeof OurSitesRoute
+  '/property-verification': typeof PropertyVerificationRoute
+  '/request-property': typeof RequestPropertyRoute
   '/residential': typeof ResidentialRoute
+  '/sell-property': typeof SellPropertyRoute
+  '/services': typeof ServicesRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/properties/$id': typeof PropertiesIdRoute
+  '/blog/': typeof BlogIndexRoute
   '/properties/': typeof PropertiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/agricultural-land': typeof AgriculturalLandRoute
+  '/book-appointment': typeof BookAppointmentRoute
   '/commercial': typeof CommercialRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/our-sites': typeof OurSitesRoute
+  '/property-verification': typeof PropertyVerificationRoute
+  '/request-property': typeof RequestPropertyRoute
   '/residential': typeof ResidentialRoute
+  '/sell-property': typeof SellPropertyRoute
+  '/services': typeof ServicesRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/properties/$id': typeof PropertiesIdRoute
+  '/blog': typeof BlogIndexRoute
   '/properties': typeof PropertiesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/agricultural-land': typeof AgriculturalLandRoute
+  '/book-appointment': typeof BookAppointmentRoute
   '/commercial': typeof CommercialRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/our-sites': typeof OurSitesRoute
+  '/property-verification': typeof PropertyVerificationRoute
+  '/request-property': typeof RequestPropertyRoute
   '/residential': typeof ResidentialRoute
+  '/sell-property': typeof SellPropertyRoute
+  '/services': typeof ServicesRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/properties/$id': typeof PropertiesIdRoute
+  '/blog/': typeof BlogIndexRoute
   '/properties/': typeof PropertiesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/agricultural-land'
+    | '/book-appointment'
     | '/commercial'
+    | '/contact'
+    | '/gallery'
+    | '/our-sites'
+    | '/property-verification'
+    | '/request-property'
     | '/residential'
+    | '/sell-property'
+    | '/services'
+    | '/blog/$slug'
     | '/properties/$id'
+    | '/blog/'
     | '/properties/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/agricultural-land'
+    | '/book-appointment'
     | '/commercial'
+    | '/contact'
+    | '/gallery'
+    | '/our-sites'
+    | '/property-verification'
+    | '/request-property'
     | '/residential'
+    | '/sell-property'
+    | '/services'
+    | '/blog/$slug'
     | '/properties/$id'
+    | '/blog'
     | '/properties'
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/agricultural-land'
+    | '/book-appointment'
     | '/commercial'
+    | '/contact'
+    | '/gallery'
+    | '/our-sites'
+    | '/property-verification'
+    | '/request-property'
     | '/residential'
+    | '/sell-property'
+    | '/services'
+    | '/blog/$slug'
     | '/properties/$id'
+    | '/blog/'
     | '/properties/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AgriculturalLandRoute: typeof AgriculturalLandRoute
+  BookAppointmentRoute: typeof BookAppointmentRoute
   CommercialRoute: typeof CommercialRoute
+  ContactRoute: typeof ContactRoute
+  GalleryRoute: typeof GalleryRoute
+  OurSitesRoute: typeof OurSitesRoute
+  PropertyVerificationRoute: typeof PropertyVerificationRoute
+  RequestPropertyRoute: typeof RequestPropertyRoute
   ResidentialRoute: typeof ResidentialRoute
+  SellPropertyRoute: typeof SellPropertyRoute
+  ServicesRoute: typeof ServicesRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   PropertiesIdRoute: typeof PropertiesIdRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   PropertiesIndexRoute: typeof PropertiesIndexRoute
 }
 
@@ -117,11 +260,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/agricultural-land': {
       id: '/agricultural-land'
       path: '/agricultural-land'
       fullPath: '/agricultural-land'
       preLoaderRoute: typeof AgriculturalLandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-appointment': {
+      id: '/book-appointment'
+      path: '/book-appointment'
+      fullPath: '/book-appointment'
+      preLoaderRoute: typeof BookAppointmentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/commercial': {
@@ -131,11 +288,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommercialRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-sites': {
+      id: '/our-sites'
+      path: '/our-sites'
+      fullPath: '/our-sites'
+      preLoaderRoute: typeof OurSitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/property-verification': {
+      id: '/property-verification'
+      path: '/property-verification'
+      fullPath: '/property-verification'
+      preLoaderRoute: typeof PropertyVerificationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request-property': {
+      id: '/request-property'
+      path: '/request-property'
+      fullPath: '/request-property'
+      preLoaderRoute: typeof RequestPropertyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/residential': {
       id: '/residential'
       path: '/residential'
       fullPath: '/residential'
       preLoaderRoute: typeof ResidentialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sell-property': {
+      id: '/sell-property'
+      path: '/sell-property'
+      fullPath: '/sell-property'
+      preLoaderRoute: typeof SellPropertyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/properties/': {
@@ -157,10 +377,21 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AgriculturalLandRoute: AgriculturalLandRoute,
+  BookAppointmentRoute: BookAppointmentRoute,
   CommercialRoute: CommercialRoute,
+  ContactRoute: ContactRoute,
+  GalleryRoute: GalleryRoute,
+  OurSitesRoute: OurSitesRoute,
+  PropertyVerificationRoute: PropertyVerificationRoute,
+  RequestPropertyRoute: RequestPropertyRoute,
   ResidentialRoute: ResidentialRoute,
+  SellPropertyRoute: SellPropertyRoute,
+  ServicesRoute: ServicesRoute,
+  BlogSlugRoute: BlogSlugRoute,
   PropertiesIdRoute: PropertiesIdRoute,
+  BlogIndexRoute: BlogIndexRoute,
   PropertiesIndexRoute: PropertiesIndexRoute,
 }
 export const routeTree = rootRouteImport
