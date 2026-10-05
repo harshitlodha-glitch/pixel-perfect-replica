@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SiteHeader, SiteFooter, MobileActionBar } from "@/components/site/SiteChrome";
 
 function NotFoundComponent() {
   return (
@@ -73,27 +74,45 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   );
 }
 
+const ORG_LD = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Arihant Properties",
+  telephone: "+91 94141 09331",
+  foundingDate: "1996",
+  areaServed: "Chittorgarh, Rajasthan",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "19-A, Udaipur Rd, Senthi, Bapu Nagar",
+    addressLocality: "Chittorgarh",
+    addressRegion: "Rajasthan",
+    postalCode: "312001",
+    addressCountry: "IN",
+  },
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Arihant Properties | Real Estate in Chittorgarh" },
+      { name: "description", content: "Trusted real estate services in Chittorgarh since 1996." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Arihant Properties" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(ORG_LD) }],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -120,8 +139,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <SiteHeader />
+      <main>
+        <Outlet />
+      </main>
+      <SiteFooter />
+      <MobileActionBar />
     </QueryClientProvider>
   );
 }
